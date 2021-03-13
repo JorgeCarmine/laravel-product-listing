@@ -19,7 +19,7 @@ class ProductsController extends Controller
     {
         
         if($request->hasFile('file')) {
-            Product::truncate();
+            // Product::truncate();
             $path1 = $request->file('file')->store('temp'); 
             $path = storage_path('app').'/'. $path1;  
             Excel::import(new ProductsImport, $path);
