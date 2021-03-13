@@ -18,12 +18,6 @@ class ProductsImport implements ToModel
     {
         if($row[0] != 'CATEGORY' && $row[0] != '') {
             $category = Category::where('name', $row[0])->get()->first();
-            // echo ($row[2]);
-            // return new Product::([
-            //     'name' => $row[1],
-            //     'order' => $row[2],
-            //     'category_id' => $category->id,
-            // ]);
 
             Product::where('name', $row[1])
                 ->update(['order' => $row[2], 'category_id' => $category->id]);
