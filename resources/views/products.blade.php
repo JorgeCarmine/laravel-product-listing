@@ -23,6 +23,17 @@
     <body class="antialiased">
         <div class="container">
             <div class="row">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            </div>
+            <div class="row">
                 <form action="/subir-productos" method="post" enctype="multipart/form-data">
                     @csrf
                     <label for="file" class="btn btn-primary">Importar productos</label>
@@ -45,7 +56,7 @@
                 <tbody>
                     @foreach($products as $product)
                         <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">$product</th>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->category->name }}</td>
                         </tr>

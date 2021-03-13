@@ -24,7 +24,7 @@ class ProductsController extends Controller
             $path = storage_path('app').'/'. $path1;  
             Excel::import(new ProductsImport, $path);
             return back();
-        } return "test";
+        } return back()->withErrors([ 'message' => 'El archivo es requerido' ]);
     }
 
     public function fileExportProducts() 
