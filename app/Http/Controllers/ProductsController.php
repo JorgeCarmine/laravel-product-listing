@@ -29,6 +29,6 @@ class ProductsController extends Controller
 
     public function fileExportProducts() 
     {
-        return \Excel::download(new ProductsExport, 'users-collection.xlsx');
+        return \Excel::download(new ProductsExport, 'products-list.xlsx');
     }  
 }
